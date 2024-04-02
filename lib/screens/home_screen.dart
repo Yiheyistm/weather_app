@@ -2,17 +2,20 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc.dart';
 import 'package:weather_app/data/my_data.dart';
+import 'dart:developer' as devtool show log;
+
+import 'package:weather_app/screens/component/greeting.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       extendBody: true,
       backgroundColor: Colors.black,
@@ -70,6 +73,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                       
                         Text(
                           '📍 ${state.weather.areaName}',
                           style: const TextStyle(
@@ -77,19 +81,15 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
-                        const Text(
-                          'Good Morning',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25),
-                        ),
+                        greating(state.weather.date!.hour),
+                        
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image.asset(
-                              MyData().weatherIcons(state.weather.weatherConditionCode!),
-                              scale: 8,
+                              MyData().weatherIcons(
+                                  state.weather.weatherConditionCode!),
+                              scale: 6,
                             ),
                             Text(
                               '${state.weather.temperature!.celsius!.round()}°C',
@@ -109,14 +109,13 @@ class HomeScreen extends StatelessWidget {
                               DateFormat('EEEE dd .')
                                   .add_jm()
                                   .format(state.weather.date!),
-                              // 'Monday 15, 2024',
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(
-                              height: 30,
+                              height: 50,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,7 +141,6 @@ class HomeScreen extends StatelessWidget {
                                           DateFormat()
                                               .add_jm()
                                               .format(state.weather.sunrise!),
-                                          // '4:45 AM',
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 14,
@@ -173,7 +171,6 @@ class HomeScreen extends StatelessWidget {
                                           DateFormat()
                                               .add_jm()
                                               .format(state.weather.sunset!),
-                                          // '4:45 PM',
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 14,
@@ -249,21 +246,25 @@ class HomeScreen extends StatelessWidget {
                               ],
                             )
                           ],
-                        )
+                        ),
+
                       ],
                     ),
                   );
                 } else {
-                  return const Center(child: CircularProgressIndicator());
+                  devtool.log(state.toString());
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.white,
+                  ));
                 }
               },
+
             ),
+           
           ]),
         ),
       ),
     );
   }
 }
-
-
-
