@@ -34,6 +34,6 @@ A step by step series of examples that tell you how to get a development environ
 * [Dart](https://dart.dev/) - Language
 
 ## Authors
-
-* **Your Name** - *Initial work* - [YourGithubUsername](https://github.com/YourGithubUsername)
+    
+* **Yiheyis Tamir** - *Weather app* - [Yiheyis Tamir](https://github.com/Yiheyistm)
 
