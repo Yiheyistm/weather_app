@@ -1,16 +1,39 @@
-# weather_app
+# Project Title
 
-A new Flutter project.
+This is a weather application built with Dart and Flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+What things you need to install the software and how to install them:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter SDK
+- Dart SDK
+- An IDE like VS Code or Android Studio
+
+### Installing
+
+A step by step series of examples that tell you how to get a development environment running:
+
+1. Clone the repository
+2. Open the project in your preferred IDE
+3. Run `flutter pub get` to install dependencies
+4. Start your emulator
+5. Run `flutter run` to start the app
+
+![Screenshot](./assets/screenshot/screenshot1.png)
+![Screenshot](./assets/screenshot/Screenshot2.png)
+
+
+## Built With
+
+* [Flutter](https://flutter.dev/) - The web framework used
+* [Dart](https://dart.dev/) - Language
+
+## Authors
+
+* **Your Name** - *Initial work* - [YourGithubUsername](https://github.com/YourGithubUsername)
+
